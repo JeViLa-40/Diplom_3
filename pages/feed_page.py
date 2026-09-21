@@ -29,7 +29,5 @@ class FeedPage(BasePage):
         return self.find_element_with_wait(LocatorsFeedPage.COUNTER_TODAY_ORDERS_DONE)
 
     @allure.step('Находим заказ в работе')
-    def find_or_order_in_progress(self):
-        return self.find_element_with_wait(LocatorsFeedPage.ORDER_IN_PROGRESS)
-
-    
+    def find_order_in_progress(self):
+        return self.find_element_with_wait_for_change_element(LocatorsFeedPage.ORDER_IN_PROGRESS, 'Все текущие заказы готовы!')

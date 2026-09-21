@@ -13,7 +13,7 @@ class ConstructorPage(BasePage):
 
     @allure.step('Кликаем по кнопке Лента Заказов в шапке')
     def click_on_button_feed(self):
-        self.click_on_element_with_wait(LocatorsConstructorPage.BUTTON_FEED)
+        self.click_java_script(LocatorsConstructorPage.BUTTON_FEED)
 
     @allure.step('Кликаем по ингредиенту Флюоресцентная булка')
     def click_on_card_fluor_bun(self):
@@ -41,21 +41,11 @@ class ConstructorPage(BasePage):
 
     @allure.step('Кликаем на крестик в окне заказа')
     def click_on_cross_to_close_window_order(self):
-        self.click_on_element_with_wait(LocatorsConstructorPage.CROSS_WINDOW_ORDER)
-
-    """def click_on_cross_to_close_window_order(self):
-    # Оставляем ваше ожидание, чтобы элемент точно был в DOM и доступен
-    cross_button = WebDriverWait(self.driver, 10).until(
-        EC.element_to_be_clickable(self.CROSS_LOCATOR) # используйте ваш локатор
-    )
-    # Вместо cross_button.click() пишем:
-    self.driver.execute_script("arguments[0].click();", cross_button)
-"""
-
+        self.click_java_script(LocatorsConstructorPage.CROSS_WINDOW_ORDER)
 
     @allure.step('Находим номер заказа в окне заказа')
     def find_order_number(self):
-        return self.find_element_with_wait(LocatorsConstructorPage.ORDER_NUMBER)
+        return self.find_element_with_wait_for_change_element(LocatorsConstructorPage.ORDER_NUMBER, '9999')
 
     @allure.step('Ожидаем закрытие окна с деталями заказа')
     def wait_for_close_ingredient_details_window(self):
@@ -70,4 +60,3 @@ class ConstructorPage(BasePage):
         self.drag_and_drop(LocatorsConstructorPage.INGREDIENT_CARD_FLUOR_BUN, LocatorsConstructorPage.BASKET)
         self.drag_sauce_to_basket()
         self.click_on_button_place_order()
-
