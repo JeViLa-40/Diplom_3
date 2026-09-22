@@ -8,8 +8,8 @@ class ConstructorPage(BasePage):
         super().__init__(driver)
 
     @allure.step('Открываем страницу конструктора')
-    def open_page(self):
-        self.driver.get(Urls.CONSTRUCTOR_URL)
+    def open_constructor_page(self):
+        self.open_page(Urls.CONSTRUCTOR_URL)
 
     @allure.step('Кликаем по кнопке Лента Заказов в шапке')
     def click_on_button_feed(self):

@@ -9,8 +9,8 @@ class FeedPage(BasePage):
         super().__init__(driver)
 
     @allure.step('Открываем страницу Лента Заказов')
-    def open_page(self):
-        self.driver.get(Urls.FEED_URL)
+    def open_feed_page(self):
+        self.open_page(Urls.FEED_URL)
 
     @allure.step('Кликаем по кнопке Конструктор в шапке')
     def click_on_button_constructor(self):

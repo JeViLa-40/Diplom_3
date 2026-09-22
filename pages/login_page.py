@@ -10,8 +10,8 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     @allure.step('Открываем страницу авторизации')
-    def open_page(self):
-        self.driver.get(Urls.LOGIN_URL)
+    def open_login_page(self):
+        self.open_page(Urls.LOGIN_URL)
 
     @allure.step('Авторизуем пользователя')
     def login_user(self, email, password):
